@@ -4,6 +4,7 @@ import { StarField } from "@/components/StarField";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Countdown } from "@/components/Countdown";
 import { Typewriter } from "@/components/Typewriter";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,6 +55,7 @@ function Section({ children, className = "" }: { children: React.ReactNode; clas
 function Page() {
   const [started, setStarted] = useState(false);
   const emotionalRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const handleStart = () => {
     setStarted(true);
@@ -133,7 +135,7 @@ function Page() {
                     key={i}
                     className="polaroid absolute animate-float-slow"
                     style={{
-                      left: p.left,
+                      left: isMobile ? p.mobileLeft : p.left,
                       top: p.top,
                       transform: `rotate(${p.rot}deg)`,
                       animationDelay: `${i * 0.7}s`,
@@ -308,8 +310,8 @@ function Reveal() {
 }
 
 const polaroids = [
-  { left: "5%", top: "10%", rot: -8, caption: "juntos", image: "/eu-e-meu-amor-2.jpg" },
-  { left: "30%", top: "30%", rot: 5, caption: "para", image: "/eu-e-meu-amor-3.jpg" },
-  { left: "55%", top: "5%", rot: -4, caption: "sempre", image: "/eu-e-meu-amor-4.jpg" },
-  { left: "75%", top: "35%", rot: 8, caption: "meu amor", image: "/eu-e-meu-amor.jpg" },
+  { left: "5%", mobileLeft: "2%", top: "10%", rot: -8, caption: "juntos", image: "/eu-e-meu-amor-2.jpg" },
+  { left: "30%", mobileLeft: "24%", top: "30%", rot: 5, caption: "para", image: "/eu-e-meu-amor-3.jpg" },
+  { left: "55%", mobileLeft: "46%", top: "5%", rot: -4, caption: "sempre", image: "/eu-e-meu-amor-4.jpg" },
+  { left: "75%", mobileLeft: "66%", top: "35%", rot: 8, caption: "meu amor", image: "/eu-e-meu-amor.jpg" },
 ];
