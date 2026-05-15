@@ -8,7 +8,7 @@ import { Typewriter } from "@/components/Typewriter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Para você — uma surpresa" },
+      { title: "O presente do meu amor" },
       { name: "description", content: "Algumas histórias merecem ser eternas." },
       {
         rel: "stylesheet",
