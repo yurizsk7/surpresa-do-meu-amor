@@ -43,7 +43,7 @@ function Section({ children, className = "" }: { children: React.ReactNode; clas
   return (
     <section
       ref={ref}
-      className={`relative min-h-screen flex flex-col items-center justify-center px-6 py-24 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      className={`relative min-h-screen flex flex-col items-center justify-center px-6 py-24 overflow-hidden transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
         } ${className}`}
     >
       {children}
@@ -283,7 +283,7 @@ function Reveal() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-12 text-center overflow-hidden"
       style={{ background: "radial-gradient(ellipse at center, oklch(0.04 0.02 15) 30%, oklch(0.02 0.01 15) 100%)" }}
     >
       {phase >= 1 && (
@@ -292,13 +292,13 @@ function Reveal() {
         </p>
       )}
       {phase >= 2 && (
-        <h2 className="mt-16 text-6xl md:text-9xl font-display font-semibold tracking-wider text-ink-reveal">
-          Sangue de Tinta
+        <h2 className="mt-8 text-5xl md:text-9xl font-display font-semibold tracking-wider text-ink-reveal leading-tight">
+          Sangue <br /> de Tinta
         </h2>
       )}
       {phase >= 3 && (
         <p
-          className="mt-16 text-lg md:text-2xl text-gold-soft tracking-[0.3em] uppercase animate-fade-up"
+          className="mt-8 text-lg md:text-2xl text-gold-soft tracking-[0.3em] uppercase animate-fade-up"
         >
           Seu presente está chegando <span className="text-[var(--ink)]">❤️</span>
         </p>
